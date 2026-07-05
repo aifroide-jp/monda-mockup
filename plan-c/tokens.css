@@ -1,0 +1,53 @@
+/* ===== Plan C: パステル吹き出し（包括的） ===== */
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Klee+One:wght@600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+:root {
+  --font-heading: 'Kiwi Maru', 'M PLUS Rounded 1c', serif;
+  --font-body: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  --font-accent: 'Klee One', 'Zen Maru Gothic', cursive; /* 手書き風（キャッチ用） */
+
+  /* Base */
+  --bg-base: #FFFDF5;
+  --bg-alt: #F8F8E8;
+  --card-bg: #FFF8F0;
+  --border-color: #E8E0D8;
+
+  /* Text */
+  --text-primary: #482818;
+  --text-secondary: #6B5040;
+  --text-muted: #9B8878;
+
+  /* Accents */
+  --color-accent1: #B87898;
+  --color-accent2: #88B858;
+  --color-accent3: #E8B838;
+  --color-accent4: #D89888;
+  --color-accent5: #B8D8F8;
+  --color-accent6: #E8B8D8;
+  --color-accent7: #A8D8A8;
+
+  /* Bubbles - pastel fill with dark text */
+  --bubble1-bg: #E8B8D8; --bubble1-text: #482818;
+  --bubble2-bg: #B8E8B8; --bubble2-text: #482818;
+  --bubble3-bg: #B8D8F8; --bubble3-text: #482818;
+  --bubble4-bg: #F8E8B8; --bubble4-text: #482818;
+  --bubble5-bg: #D8B8E8; --bubble5-text: #482818;
+  --bubble6-bg: #F8D0C0; --bubble6-text: #482818;
+
+  /* Header / Footer */
+  --header-bg: #482818;
+  --header-text: #FFFFFF;
+  --footer-bg: #482818;
+  --footer-text: #FFFFFF;
+
+  /* Hero */
+  --hero-bg: #FFF8F0;
+
+  /* CTA */
+  --cta-bg: #B87898;
+  --cta-text: #FFFFFF;
+
+  /* Tags */
+  --tag-bg: #F8F0E8;
+  --tag-text: #6B5040;
+}

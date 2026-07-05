@@ -1,0 +1,327 @@
+/* ===== Plan B specific: Outline bubbles with connectors ===== */
+.site-header {
+  border-bottom: 2px solid var(--color-accent1);
+}
+.bubble-tag {
+  background: transparent !important;
+  border: 2.5px solid var(--color-accent1);
+  color: var(--text-primary) !important;
+  border-radius: 8px;
+  position: relative;
+}
+.bubble-tag:nth-child(1) { border-color: var(--bubble1-border); }
+.bubble-tag:nth-child(2) { border-color: var(--bubble2-border); }
+.bubble-tag:nth-child(3) { border-color: var(--bubble3-border); }
+.bubble-tag:nth-child(4) { border-color: var(--bubble4-border); }
+.bubble-tag:nth-child(5) { border-color: var(--bubble5-border); }
+.bubble-tag:nth-child(6) { border-color: var(--bubble6-border); }
+
+/* Connector arrows between bubbles */
+.bubble-tags { position: relative; gap: 16px; }
+.bubble-tag + .bubble-tag::before {
+  content: '→';
+  position: absolute;
+  left: -14px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); font-size: 0.8rem;
+}
+
+/* Section titles with underline decoration */
+.section-title {
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--color-accent1);
+  display: inline-block;
+}
+
+/* Episode cards with outline style */
+.episode-card {
+  border: 2px solid var(--border-color);
+  background: #FFFFFF;
+}
+.episode-card:nth-child(1) { border-color: var(--bubble1-border); }
+.episode-card:nth-child(2) { border-color: var(--bubble2-border); }
+.episode-card:nth-child(3) { border-color: var(--bubble3-border); }
+.episode-card:nth-child(4) { border-color: var(--bubble4-border); }
+.episode-card:nth-child(5) { border-color: var(--bubble5-border); }
+.episode-card:nth-child(6) { border-color: var(--bubble6-border); }
+
+.episode-headline {
+  border: 3px solid var(--color-accent1);
+  background: #FFFFFF;
+}
+
+.about-card {
+  border: 2px solid var(--border-color);
+  background: #FFFFFF;
+}
+
+/* ===== ヒーロー：アウトライン吹き出しのフロー ===== */
+.hero-inner { position: relative; }
+.hero-copy, .hero-foot { max-width: 560px; margin: 0 auto; }
+
+/* キャッチ：ポスターBの黒枠ボックス＋しっぽ */
+.hero-catch {
+  display: inline-block;
+  position: relative;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  border: 2.5px solid var(--text-primary);
+  border-radius: 10px;
+  padding: 8px 20px;
+  margin-bottom: 16px;
+}
+.hero-catch::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 28px;
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  border-right: 2.5px solid var(--text-primary);
+  border-bottom: 2.5px solid var(--text-primary);
+  transform: rotate(45deg) skew(8deg, 8deg);
+}
+.hero-catch em { font-style: normal; color: var(--color-accent1); }
+
+/* 枠線カード（カード自体が吹き出し） */
+.hero-monda-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 34px;
+  max-width: 900px;
+  margin: 28px auto 36px;
+}
+.monda-card {
+  --bc: var(--color-accent1);
+  --ty: 0px;
+  position: relative;
+  background: #fff;
+  border: 3px solid var(--bc);
+  border-radius: 14px;
+  padding: 18px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(var(--ty));
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+/* アウトラインのしっぽ（左向き＝前のカードから話が続くフロー表現） */
+.monda-card::after {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 32px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-left: 3px solid var(--bc);
+  border-bottom: 3px solid var(--bc);
+  transform: rotate(45deg);
+}
+/* フローを示す▶コネクタ（表示条件はメディアクエリで制御） */
+.monda-card::before {
+  content: none;
+  position: absolute;
+  left: -27px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.05rem;
+  color: var(--bc);
+}
+/* ジグザグ配置でフロー感を出す */
+.monda-card:nth-child(even) { --ty: 16px; }
+.monda-pict { width: 84px; height: 84px; flex-shrink: 0; }
+.monda-pict svg { width: 100%; height: 100%; display: block; }
+.monda-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+  text-wrap: balance; /* 行の長さを均す */
+  color: var(--text-primary);
+}
+.monda-card:hover {
+  transform: translateY(calc(var(--ty) - 5px));
+  box-shadow: 0 6px 16px rgba(40, 24, 24, 0.1);
+}
+
+/* 出現：下からすっと整列（知的トーンなので控えめに） */
+@keyframes monda-rise {
+  from { opacity: 0; transform: translateY(calc(var(--ty) + 18px)); }
+  to   { opacity: 1; transform: translateY(var(--ty)); }
+}
+.monda-card { animation: monda-rise 0.45s ease-out backwards; }
+.monda-card:nth-child(1) { animation-delay: 0.05s; }
+.monda-card:nth-child(2) { animation-delay: 0.15s; }
+.monda-card:nth-child(3) { animation-delay: 0.25s; }
+.monda-card:nth-child(4) { animation-delay: 0.35s; }
+.monda-card:nth-child(5) { animation-delay: 0.45s; }
+.monda-card:nth-child(6) { animation-delay: 0.55s; }
+@media (prefers-reduced-motion: reduce) {
+  .monda-card { animation: none !important; transition: none !important; }
+}
+
+/* タブレット（769〜1024px）：3列フロー＋▶ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .monda-card:not(:nth-child(3n+1))::before { content: '▶'; }
+}
+
+/* PC（1025px〜）：コピー左・フロー右の非対称レイアウト */
+@media (min-width: 1025px) {
+  .hero { padding: 70px 0 60px; text-align: left; }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 44% 1fr;
+    grid-template-areas: 'copy cards' 'foot cards';
+    column-gap: 44px;
+    align-content: center;
+  }
+  /* 左カラム幅に収まるようタイトルサイズを調整（不自然な折返し防止） */
+  .hero-title { font-size: clamp(1.8rem, 3.4vw, 2.5rem); }
+  .hero-copy { grid-area: copy; align-self: end; margin: 0; max-width: none; }
+  .hero-foot { grid-area: foot; align-self: start; margin: 0; max-width: none; }
+  .hero-monda-grid {
+    grid-area: cards;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 34px;
+    margin: 0;
+    max-width: none;
+  }
+  .monda-card:nth-child(even)::before { content: '▶'; }
+  .monda-pict { width: 76px; height: 76px; }
+}
+
+/* モバイル（〜768px）：2列のカラム落ち（横スクロールなし） */
+@media (max-width: 768px) {
+  .hero-monda-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 14px;
+    margin: 16px auto 24px;
+  }
+  .monda-card { padding: 14px 10px 12px; }
+  .monda-card:nth-child(even) { --ty: 0px; }
+  /* 狭幅では左向きしっぽが隣カードに触れないよう非表示 */
+  .monda-card::after { content: none; }
+  .monda-pict { width: 70px; height: 70px; }
+  .monda-text { font-size: 0.76rem; }
+}
+
+/* ===== 4つの場面（枠線サークル） ===== */
+.scenes { background: var(--bg-alt); text-align: center; }
+.scenes-lead {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 8px 0 32px;
+}
+.scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.scene-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.scene-icon {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--sc);
+  display: grid;
+  place-items: center;
+  color: var(--sc);
+}
+.scene-icon svg { width: 48px; height: 48px; display: block; }
+.scene-name {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: var(--sc);
+}
+@media (max-width: 768px) {
+  .scenes-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+}
+
+/* ===== 応募はかんたん3ステップ（枠線カード＋フロー矢印） ===== */
+.steps { background: var(--bg-base); text-align: center; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 860px;
+  margin: 0 auto 24px;
+}
+.step-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 20px 24px;
+  position: relative;
+  border: 2.5px solid var(--border-color);
+}
+.step-card:nth-child(1) { border-color: var(--color-accent1); }
+.step-card:nth-child(2) { border-color: var(--color-accent4); }
+.step-card:nth-child(3) { border-color: var(--color-accent5); }
+.step-num {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.15rem;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+}
+.step-card:nth-child(1) .step-num { background: var(--color-accent1); }
+.step-card:nth-child(2) .step-num { background: var(--color-accent4); }
+.step-card:nth-child(3) .step-num { background: var(--color-accent5); }
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.step-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+.step-card:not(:last-child)::after {
+  content: '▶';
+  position: absolute;
+  right: -19px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-accent3);
+  font-size: 0.9rem;
+  z-index: 1;
+}
+.steps-chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.steps-chip {
+  border: 2px solid var(--color-accent3);
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.steps-chip--deadline { border-color: var(--color-accent1); }
+
+/* 左カラムでは固定改行を解除して自然に折り返す（ラグ改行防止） */
+.hero-lead br { display: none; }
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 26px; }
+  .step-card:not(:last-child)::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -21px;
+    transform: translateX(-50%) rotate(90deg);
+  }
+}

@@ -1,0 +1,53 @@
+/* ===== Plan A: カラフル吹き出し（ビビッド） ===== */
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+:root {
+  --font-heading: 'Mochiy Pop One', 'M PLUS Rounded 1c', sans-serif;
+  --font-body: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  --font-accent: 'Yusei Magic', 'M PLUS Rounded 1c', sans-serif; /* 手書き風（キャッチ用） */
+
+  /* Base */
+  --bg-base: #FFFFFF;
+  --bg-alt: #F8F8F8;
+  --card-bg: #F5F5F5;
+  --border-color: #E0E0E0;
+
+  /* Text */
+  --text-primary: #281818;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+
+  /* Accents */
+  --color-accent1: #C85848;
+  --color-accent2: #B84888;
+  --color-accent3: #D88898;
+  --color-accent4: #68B8E8;
+  --color-accent5: #E8B838;
+  --color-accent6: #A8C858;
+  --color-accent7: #F8F848;
+
+  /* Bubbles - filled with white text */
+  --bubble1-bg: #C85848; --bubble1-text: #FFFFFF;
+  --bubble2-bg: #B84888; --bubble2-text: #FFFFFF;
+  --bubble3-bg: #68B8E8; --bubble3-text: #FFFFFF;
+  --bubble4-bg: #A8C858; --bubble4-text: #281818;
+  --bubble5-bg: #E8B838; --bubble5-text: #281818;
+  --bubble6-bg: #D88898; --bubble6-text: #FFFFFF;
+
+  /* Header / Footer */
+  --header-bg: #281818;
+  --header-text: #FFFFFF;
+  --footer-bg: #281818;
+  --footer-text: #FFFFFF;
+
+  /* Hero */
+  --hero-bg: #FFF8F0;
+
+  /* CTA */
+  --cta-bg: #281818;
+  --cta-text: #FFFFFF;
+
+  /* Tags */
+  --tag-bg: #F0F0F0;
+  --tag-text: #555555;
+}

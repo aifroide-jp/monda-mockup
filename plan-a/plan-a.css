@@ -1,0 +1,260 @@
+/* ===== 案A専用スタイル ===== */
+
+/* Mochiy Pop One / Yusei Magic は400のみ提供のため疑似ボールドを無効化 */
+body { font-synthesis: none; }
+
+/* 黒ヘッダー上でCTAが同化しないよう、ポスターAの「黒地×イエロー」に */
+.nav-cta {
+  background: var(--color-accent7);
+  color: var(--text-primary);
+}
+
+/* --- ヒーロー：ポスター風コラージュ --- */
+.hero-inner { position: relative; }
+.hero-copy,
+.hero-foot { position: relative; z-index: 2; max-width: 520px; margin: 0 auto; }
+
+/* キャッチ→メインコピーの2段構成（ポスターの読み順） */
+.hero-catch {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  margin-bottom: 10px;
+}
+.hero-catch em {
+  font-style: normal;
+  /* ポスターの黄色アンダーラインをマーカー風に再現 */
+  background: linear-gradient(transparent 62%, var(--color-accent7) 62%);
+  padding: 0 2px;
+}
+
+/* イラスト＋吹き出しのカード */
+.hero-monda-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 840px;
+  margin: 24px auto 28px;
+}
+.monda-card {
+  --rot: 0deg;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 10px rgba(40, 24, 24, 0.06);
+  transform: rotate(var(--rot));
+}
+.monda-pict { width: 84px; height: 84px; flex-shrink: 0; }
+.monda-pict svg { width: 100%; height: 100%; display: block; }
+.monda-bubble {
+  position: relative;
+  background: var(--mc);
+  color: var(--mct);
+  border-radius: 14px;
+  padding: 9px 12px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  text-align: center;
+  text-wrap: balance; /* 吹き出し内の行の長さを均す */
+  margin-top: 4px;
+}
+.monda-bubble::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 9px solid transparent;
+  border-top: 0;
+  border-bottom-color: var(--mc);
+}
+
+/* 吹き出しがポンッと湧き出す出現アニメーション */
+@keyframes monda-pop {
+  from { transform: scale(0.3) rotate(var(--rot)); opacity: 0; }
+  to   { transform: scale(1) rotate(var(--rot)); opacity: 1; }
+}
+@keyframes pict-wobble {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  30%      { transform: rotate(4deg) scale(1.07); }
+  70%      { transform: rotate(-4deg) scale(1.04); }
+}
+.monda-card { animation: monda-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) backwards; }
+.monda-card:nth-child(1) { animation-delay: 0.1s; }
+.monda-card:nth-child(2) { animation-delay: 0.25s; }
+.monda-card:nth-child(3) { animation-delay: 0.4s; }
+.monda-card:nth-child(4) { animation-delay: 0.55s; }
+.monda-card:nth-child(5) { animation-delay: 0.7s; }
+.monda-card:nth-child(6) { animation-delay: 0.85s; }
+.monda-card:nth-child(7) { animation-delay: 1s; }
+.monda-card:hover .monda-pict { animation: pict-wobble 0.6s ease-in-out; }
+
+/* 応募誘導カード（7枚目・モバイル/タブレットのみ） */
+.monda-card--entry { border: 2.5px dashed var(--color-accent1); background: #FFFDF8; }
+.monda-card--entry a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .monda-card, .monda-pict { animation: none !important; }
+}
+
+/* PC（1025px〜）：コピーを中央に、カードを左右に散らすコラージュ */
+@media (min-width: 1025px) {
+  .hero { padding: 70px 0 60px; }
+  .hero-inner {
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-copy, .hero-foot { max-width: 540px; }
+  .hero-monda-grid { display: contents; }
+  .monda-card { position: absolute; width: 215px; z-index: 1; }
+  .monda-card--entry { display: none; } /* PCコラージュでは6枚構成を維持 */
+  .monda-pict { width: 78px; height: 78px; }
+  .monda-bubble { font-size: 0.78rem; }
+  .monda-card:nth-child(1) { left: 1%;  top: 2%;  --rot: -5deg; }
+  .monda-card:nth-child(2) { left: 0%;  top: 36%; --rot: 4deg; }
+  .monda-card:nth-child(3) { left: 3%;  top: 70%; --rot: -3deg; }
+  .monda-card:nth-child(4) { right: 2%; top: 4%;  --rot: 5deg; }
+  .monda-card:nth-child(5) { right: 0%; top: 38%; --rot: -4deg; }
+  .monda-card:nth-child(6) { right: 3%; top: 71%; --rot: 3deg; }
+}
+
+/* モバイル（〜768px）：2列のカラム落ち（横スクロールなし） */
+@media (max-width: 768px) {
+  .hero-monda-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px auto 20px;
+  }
+  .monda-card { padding: 14px 10px 12px; }
+  .monda-card--entry { grid-column: 1 / -1; } /* 応募誘導カードは全幅 */
+  .monda-pict { width: 70px; height: 70px; }
+  .monda-bubble { font-size: 0.76rem; padding: 8px 10px; }
+}
+
+/* --- 4つの場面（ポスター下部のアイコンを再現） --- */
+.scenes { background: var(--hero-bg); text-align: center; }
+.scenes-lead {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: -8px 0 32px;
+}
+.scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.scene-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.scene-icon {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(40, 24, 24, 0.08);
+  display: grid;
+  place-items: center;
+  color: var(--sc);
+}
+.scene-icon svg { width: 50px; height: 50px; display: block; }
+.scene-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--sc);
+}
+@media (max-width: 768px) {
+  .scenes-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+}
+
+/* --- 応募はかんたん3ステップ --- */
+.steps { background: var(--bg-base); text-align: center; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto 24px;
+}
+.step-card {
+  background: var(--bg-alt);
+  border-radius: 16px;
+  padding: 28px 20px 24px;
+  position: relative;
+}
+.step-num {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+}
+.step-card:nth-child(1) .step-num { background: var(--color-accent1); }
+.step-card:nth-child(2) .step-num { background: var(--color-accent4); }
+.step-card:nth-child(3) .step-num { background: var(--color-accent2); }
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.step-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.9; }
+/* カード間の矢印コネクタ */
+.step-card:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 11px solid var(--color-accent5);
+  z-index: 1;
+}
+.steps-chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.steps-chip {
+  border: 2px solid var(--color-accent5);
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.steps-chip--deadline { border-color: var(--color-accent1); }
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr; gap: 24px; }
+  .step-card:not(:last-child)::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -18px;
+    transform: translateX(-50%);
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 11px solid var(--color-accent5);
+    border-bottom: 0;
+  }
+}

@@ -1,0 +1,53 @@
+/* ===== Plan B: 四角枠フロー（アウトライン） ===== */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap');
+
+:root {
+  /* 1書体をウェイト違いで使い分ける（整理された知的トーン） */
+  --font-heading: 'Zen Kaku Gothic New', 'M PLUS Rounded 1c', sans-serif;
+  --font-body: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+
+  /* Base */
+  --bg-base: #FFFFFF;
+  --bg-alt: #FAFAFA;
+  --card-bg: #FFFFFF;
+  --border-color: #E0E0E0;
+
+  /* Text */
+  --text-primary: #281818;
+  --text-secondary: #444444;
+  --text-muted: #888888;
+
+  /* Accents */
+  --color-accent1: #C84848;
+  --color-accent2: #B83888;
+  --color-accent3: #E8A838;
+  --color-accent4: #68B8E8;
+  --color-accent5: #58A858;
+  --color-accent6: #E87838;
+  --color-accent7: #F8D848;
+
+  /* Bubbles - outlined with colored border */
+  --bubble1-bg: transparent; --bubble1-text: #281818; --bubble1-border: #C84848;
+  --bubble2-bg: transparent; --bubble2-text: #281818; --bubble2-border: #B83888;
+  --bubble3-bg: transparent; --bubble3-text: #281818; --bubble3-border: #68B8E8;
+  --bubble4-bg: transparent; --bubble4-text: #281818; --bubble4-border: #58A858;
+  --bubble5-bg: transparent; --bubble5-text: #281818; --bubble5-border: #E8A838;
+  --bubble6-bg: transparent; --bubble6-text: #281818; --bubble6-border: #E87838;
+
+  /* Header / Footer */
+  --header-bg: #FFFFFF;
+  --header-text: #281818;
+  --footer-bg: #C84848;
+  --footer-text: #FFFFFF;
+
+  /* Hero */
+  --hero-bg: #FFFFFF;
+
+  /* CTA */
+  --cta-bg: #C84848;
+  --cta-text: #FFFFFF;
+
+  /* Tags */
+  --tag-bg: #FFF0F0;
+  --tag-text: #C84848;
+}

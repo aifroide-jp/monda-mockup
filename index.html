@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>もんだプロジェクト｜デザイン案 ご確認用インデックス</title>
+  <style>
+    :root {
+      --text: #281818;
+      --muted: #776a6a;
+      --bg: #FAF7F2;
+      --card: #FFFFFF;
+      --a: #C85848;
+      --b: #C84848;
+      --c: #B87898;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      background: #281818;
+      color: #fff;
+      padding: 28px 0;
+      text-align: center;
+    }
+    header h1 { font-size: clamp(1.15rem, 3.5vw, 1.5rem); font-weight: 700; }
+    header p { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+
+    .intro {
+      text-align: center;
+      padding: 32px 20px 8px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 24px 0 48px;
+    }
+    .plan-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(40, 24, 24, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    .plan-thumb {
+      display: block;
+      position: relative;
+      border-bottom: 1px solid #eee6e0;
+    }
+    .plan-thumb img { width: 100%; height: auto; display: block; }
+    .plan-thumb::after {
+      content: 'クリックでモックアップへ';
+      position: absolute;
+      right: 8px; bottom: 8px;
+      background: rgba(40, 24, 24, 0.75);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+    .plan-body { padding: 20px 20px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .plan-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .plan-chip {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .plan-a .plan-chip { background: var(--a); }
+    .plan-b .plan-chip { background: #fff; border: 3px solid var(--b); }
+    .plan-c .plan-chip { background: var(--c); }
+    .plan-desc { font-size: 0.88rem; color: var(--muted); flex: 1; }
+    .plan-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: #281818; color: #fff; }
+    .plan-a .btn-primary { background: var(--a); }
+    .plan-b .btn-primary { background: var(--b); }
+    .plan-c .btn-primary { background: var(--c); }
+    .btn-sub {
+      background: #fff;
+      color: var(--text);
+      border: 2px solid #d8cfc8;
+      font-size: 0.88rem;
+    }
+    .btn-sub:hover { border-color: var(--text); opacity: 1; }
+
+    .note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-bottom: 40px;
+    }
+    footer {
+      background: #281818;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.78rem;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 480px) {
+      .plans { gap: 20px; padding-top: 16px; }
+      .intro { padding-top: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>もんだプロジェクト 公式Webサイト デザイン案</h1>
+      <p>ご確認用インデックス｜佐賀県 もんだプロジェクト</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <p class="intro">
+      3つのデザイン案をご用意しました。各案の画像またはボタンからモックアップをご覧いただけます。<br>
+      元になったポスター案(PDF)もあわせてご確認ください。スマートフォンでもご覧いただけます。
+    </p>
+
+    <div class="plans">
+      <div class="plan-card plan-a">
+        <a class="plan-thumb" href="plan-a/index.html">
+          <img src="assets/preview-a.png" alt="プランAのトップページプレビュー" loading="lazy">
+        </a>
+        <div class="plan-body">
+          <p class="plan-name"><span class="plan-chip" aria-hidden="true"></span>プランA：カラフルポップ風</p>
+          <p class="plan-desc">
+            塗りつぶしのカラフルな吹き出しがポンポンと湧き出す、エネルギッシュでにぎやかな世界観。ポスターA案の勢いをそのままWebにしました。
+          </p>
+          <div class="plan-actions">
+            <a class="btn btn-primary" href="plan-a/index.html">プランAのモックアップを見る</a>
+            <a class="btn btn-sub" href="posters/poster_A.pdf" target="_blank" rel="noopener">ポスターA案（PDF）を開く</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-card plan-b">
+        <a class="plan-thumb" href="plan-b/index.html">
+          <img src="assets/preview-b.png" alt="プランBのトップページプレビュー" loading="lazy">
+        </a>
+        <div class="plan-body">
+          <p class="plan-name"><span class="plan-chip" aria-hidden="true"></span>プランB：すっきり知的風</p>
+          <p class="plan-desc">
+            白地にカラーの枠線吹き出しを矢印でつなぐ、整理されて読みやすいトーン。情報がフロー状に流れるポスターB案のWeb展開です。
+          </p>
+          <div class="plan-actions">
+            <a class="btn btn-primary" href="plan-b/index.html">プランBのモックアップを見る</a>
+            <a class="btn btn-sub" href="posters/poster_B.pdf" target="_blank" rel="noopener">ポスターB案（PDF）を開く</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-card plan-c">
+        <a class="plan-thumb" href="plan-c/index.html">
+          <img src="assets/preview-c.png" alt="プランCのトップページプレビュー" loading="lazy">
+        </a>
+        <div class="plan-body">
+          <p class="plan-name"><span class="plan-chip" aria-hidden="true"></span>プランC：やさしいパステル風</p>
+          <p class="plan-desc">
+            クリーム地にパステルの吹き出しがふわふわ浮かぶ、温かく責めない包容力のある世界観。ポスターC案の柔らかさを活かしました。
+          </p>
+          <div class="plan-actions">
+            <a class="btn btn-primary" href="plan-c/index.html">プランCのモックアップを見る</a>
+            <a class="btn btn-sub" href="posters/poster_C.pdf" target="_blank" rel="noopener">ポスターC案（PDF）を開く</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">
+      ※ モックアップは静的なデザイン確認用です。フォームなど一部の機能は動作しません。<br>
+      ※ ポスターPDFは新しいタブで開きます。
+    </p>
+  </div>
+
+  <footer>
+    <div class="wrap">もんだプロジェクト｜デザイン案選定用資料</div>
+  </footer>
+</body>
+</html>
