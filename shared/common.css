@@ -254,12 +254,60 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 800;
 }
+.page-lead {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ===== サブページ共通コンポーネント ===== */
+/* 場面タグ（色は --sc を各案CSSで定義） */
+.scene-tag {
+  font-size: 0.7rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 12px;
+  background: var(--sc, var(--tag-bg));
+  color: #fff;
+  white-space: nowrap;
+}
+/* 絞り込みチップ（モック用・見た目のみ） */
+.filter-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.filter-chip {
+  border: 2px solid var(--border-color); background: #fff;
+  border-radius: 999px; padding: 4px 14px;
+  font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);
+}
+.filter-chip--active {
+  background: var(--cta-bg); border-color: var(--cta-bg); color: var(--cta-text);
+}
+/* エピソードカードをリンク化 */
+.episode-card-anchor { display: block; color: inherit; }
+.episode-card { transition: transform 0.2s; }
+.episode-card-anchor:hover .episode-card { transform: translateY(-3px); }
+/* 外部サイト注記・戻るリンク */
+.external-note {
+  font-size: 0.78rem; color: var(--text-muted);
+  margin-top: 10px; text-align: center;
+}
+.back-link { margin-top: 32px; }
+.back-link a { color: var(--color-accent1); font-size: 0.9rem; font-weight: 500; }
+/* エピソード詳細の大イラスト */
+.episode-pict { max-width: 220px; margin: 0 auto 16px; }
+.episode-pict svg { width: 100%; height: auto; display: block; }
+.ig-note { font-size: 0.78rem; color: var(--text-muted); margin-top: -12px; margin-bottom: 8px; }
 
 /* ===== ENTRY PAGE ===== */
 .entry-intro { font-size: 0.95rem; line-height: 2; margin-bottom: 32px; }
 .entry-example {
   background: var(--card-bg); border-radius: 12px;
   padding: 24px; margin-bottom: 16px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.entry-example-pict { width: 92px; flex-shrink: 0; }
+.entry-example-pict svg { width: 100%; height: auto; display: block; }
+.entry-example-body { flex: 1; }
+@media (max-width: 768px) {
+  .entry-example { gap: 14px; padding: 18px; }
+  .entry-example-pict { width: 72px; }
 }
 .entry-example-label {
   font-size: 0.75rem; font-weight: 700;
@@ -391,7 +439,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-bottom: 1px solid var(--border-color);
   font-size: 0.9rem;
 }
-.episode-meta-table th { font-weight: 700; width: 100px; }
+.episode-meta-table th { font-weight: 700; width: 120px; white-space: nowrap; }
 .episode-ig-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);

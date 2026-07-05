@@ -244,6 +244,12 @@ body { font-synthesis: none; }
   font-weight: 700;
 }
 .steps-chip--deadline { border-color: var(--color-accent1); }
+
+/* 場面タグの色（塗り＋白文字） */
+.scene-tag--work   { --sc: #C85848; }
+.scene-tag--home   { --sc: #B84888; }
+.scene-tag--school { --sc: #68B8E8; }
+.scene-tag--area   { --sc: #A8C858; }
 @media (max-width: 768px) {
   .steps-grid { grid-template-columns: 1fr; gap: 24px; }
   .step-card:not(:last-child)::after {

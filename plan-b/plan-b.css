@@ -37,12 +37,23 @@
   border: 2px solid var(--border-color);
   background: #FFFFFF;
 }
-.episode-card:nth-child(1) { border-color: var(--bubble1-border); }
-.episode-card:nth-child(2) { border-color: var(--bubble2-border); }
-.episode-card:nth-child(3) { border-color: var(--bubble3-border); }
-.episode-card:nth-child(4) { border-color: var(--bubble4-border); }
-.episode-card:nth-child(5) { border-color: var(--bubble5-border); }
-.episode-card:nth-child(6) { border-color: var(--bubble6-border); }
+/* カードがリンク(<a>)で包まれても直接置かれても効くように子要素基準で色付け */
+.episodes-grid > :nth-child(6n+1) .episode-card { border-color: var(--bubble1-border); }
+.episodes-grid > :nth-child(6n+2) .episode-card { border-color: var(--bubble2-border); }
+.episodes-grid > :nth-child(6n+3) .episode-card { border-color: var(--bubble3-border); }
+.episodes-grid > :nth-child(6n+4) .episode-card { border-color: var(--bubble4-border); }
+.episodes-grid > :nth-child(6n+5) .episode-card { border-color: var(--bubble5-border); }
+.episodes-grid > :nth-child(6n)   .episode-card { border-color: var(--bubble6-border); }
+
+/* 場面タグ（B案は白抜き＋色枠線） */
+.scene-tag { background: #fff; border: 2px solid var(--sc); color: var(--sc); }
+.scene-tag--work   { --sc: #E87838; }
+.scene-tag--home   { --sc: #B83888; }
+.scene-tag--school { --sc: #68B8E8; }
+.scene-tag--area   { --sc: #58A858; }
+
+/* 応募例カードも枠線スタイルに */
+.entry-example { background: #fff; border: 2px solid var(--border-color); }
 
 .episode-headline {
   border: 3px solid var(--color-accent1);

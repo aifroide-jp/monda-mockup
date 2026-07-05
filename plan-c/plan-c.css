@@ -38,12 +38,19 @@
 }
 
 /* Episode cards with subtle pastel left border */
-.episode-card:nth-child(1) { border-left: 4px solid var(--bubble1-bg); }
-.episode-card:nth-child(2) { border-left: 4px solid var(--bubble2-bg); }
-.episode-card:nth-child(3) { border-left: 4px solid var(--bubble3-bg); }
-.episode-card:nth-child(4) { border-left: 4px solid var(--bubble4-bg); }
-.episode-card:nth-child(5) { border-left: 4px solid var(--bubble5-bg); }
-.episode-card:nth-child(6) { border-left: 4px solid var(--bubble6-bg); }
+/* カードがリンク(<a>)で包まれても直接置かれても効くように子要素基準で色付け */
+.episodes-grid > :nth-child(6n+1) .episode-card { border-left: 4px solid var(--bubble1-bg); }
+.episodes-grid > :nth-child(6n+2) .episode-card { border-left: 4px solid var(--bubble2-bg); }
+.episodes-grid > :nth-child(6n+3) .episode-card { border-left: 4px solid var(--bubble3-bg); }
+.episodes-grid > :nth-child(6n+4) .episode-card { border-left: 4px solid var(--bubble4-bg); }
+.episodes-grid > :nth-child(6n+5) .episode-card { border-left: 4px solid var(--bubble5-bg); }
+.episodes-grid > :nth-child(6n)   .episode-card { border-left: 4px solid var(--bubble6-bg); }
+
+/* 場面タグの色（深めパステル＋白文字） */
+.scene-tag--work   { --sc: #D89888; }
+.scene-tag--home   { --sc: #B87898; }
+.scene-tag--school { --sc: #78A8D8; }
+.scene-tag--area   { --sc: #88B858; }
 
 /* Kiwi Maru / Klee One は太ウェイト非提供のため疑似ボールドを無効化 */
 body { font-synthesis: none; }
