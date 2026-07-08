@@ -50,4 +50,22 @@
   /* Tags */
   --tag-bg: #F0F0F0;
   --tag-text: #555555;
+
+  /* ポスター吹き出しパレット（0708修正: ポスター準拠） */
+  --p-green:   #7DBE3E;
+  --p-lgreen:  #8CC63E;
+  --p-teal:    #3DBE8B;
+  --p-cyan:    #1BAFE8;
+  --p-blue:    #3F9BE0;
+  --p-navyblue:#4A7DD9;
+  --p-red:     #E8503B;
+  --p-deepred: #D93A2B;
+  --p-pink:    #ED8DA0;
+  --p-rose:    #D96E96;
+  --p-magenta: #C0208F;
+  --p-orange:  #F0A030;
+  --p-gold:    #D4A017;
+  --p-amber:   #E8A72E;
+  --p-yellow:  #F8E838;
+  --p-ink:     #231815;
 }
