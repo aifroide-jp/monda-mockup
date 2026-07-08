@@ -21,28 +21,29 @@ body { font-synthesis: none; }
 /* --- もんだロゴ（「だ」に目のあるデザインをSVGで再現・後日支給データに差し替え） --- */
 .monda-logo { display: block; width: 100%; height: auto; }
 
-/* --- ポスター風吹き出し --- */
+/* --- ポスター風吹き出し（もこもこの雲形。形はSVGマスクで再現し、しっぽ込みで::beforeに描く） --- */
+:root {
+  --cloud-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 178'%3E%3Cg fill='%23fff'%3E%3Cellipse cx='110' cy='86' rx='88' ry='56'/%3E%3Ccircle cx='48' cy='48' r='29'/%3E%3Ccircle cx='95' cy='34' r='32'/%3E%3Ccircle cx='145' cy='39' r='30'/%3E%3Ccircle cx='184' cy='62' r='27'/%3E%3Ccircle cx='195' cy='98' r='24'/%3E%3Ccircle cx='170' cy='128' r='27'/%3E%3Ccircle cx='124' cy='144' r='28'/%3E%3Ccircle cx='72' cy='138' r='27'/%3E%3Ccircle cx='30' cy='112' r='25'/%3E%3Ccircle cx='24' cy='76' r='24'/%3E%3Ccircle cx='58' cy='164' r='13'/%3E%3C/g%3E%3C/svg%3E");
+}
 .pbubble {
   --rot: 0deg;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--pb, var(--p-red));
-  border-radius: 54% 46% 52% 48% / 58% 52% 48% 42%;
-  padding: 26px 22px;
+  padding: 30px 24px;
   transform: rotate(var(--rot));
 }
 .pbubble::before {
   content: '';
   position: absolute;
-  bottom: -12px; left: 24%;
-  width: 26px; height: 26px;
+  z-index: -1;
+  inset: -10px -12px -22px -12px;
   background: var(--pb, var(--p-red));
-  border-radius: 62% 38% 60% 40% / 48% 62% 38% 52%;
-  transform: rotate(18deg);
+  -webkit-mask: var(--cloud-mask) center / 100% 100% no-repeat;
+  mask: var(--cloud-mask) center / 100% 100% no-repeat;
 }
-.pbubble--tail-r::before { left: auto; right: 22%; transform: rotate(-16deg); }
+.pbubble--tail-r::before { transform: scaleX(-1); }
 .pbubble > span {
   background: rgba(40, 20, 10, 0.18);
   border-radius: 9px;
@@ -72,8 +73,38 @@ body { font-synthesis: none; }
 }
 
 /* --- ヒーロー（ポスターベース・白背景） --- */
-.hero--poster { background: #FFFFFF; padding: 56px 0 60px; }
+.hero--poster {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0 60px;
+  /* ポスターの下地: 白 + 薄い「もんだ」散らしパターン */
+  background-color: #FFFFFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='340' viewBox='0 0 380 340'%3E%3Cg fill='%23231815' fill-opacity='0.028' font-family='Hiragino Maru Gothic ProN, Yu Gothic, sans-serif' font-weight='bold'%3E%3Ctext x='24' y='70' font-size='30' transform='rotate(-14 24 70)'%3Eもんだ%3C/text%3E%3Ctext x='230' y='58' font-size='22' transform='rotate(10 230 58)'%3Eもんだ%3C/text%3E%3Ctext x='120' y='185' font-size='26' transform='rotate(6 120 185)'%3Eもんだ%3C/text%3E%3Ctext x='280' y='210' font-size='30' transform='rotate(-8 280 210)'%3Eもんだ%3C/text%3E%3Ctext x='40' y='300' font-size='22' transform='rotate(12 40 300)'%3Eもんだ%3C/text%3E%3Ctext x='210' y='318' font-size='25' transform='rotate(-11 210 318)'%3Eもんだ%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size: 380px 340px;
+}
 .hero-inner { position: relative; }
+
+/* ポスターの密度を再現する文字なしダミー吹き出し（画面端で見切れさせる） */
+.hero-deco { position: absolute; inset: 0; pointer-events: none; }
+.hero-deco span {
+  position: absolute;
+  background: var(--pb, var(--p-yellow));
+  -webkit-mask: var(--cloud-mask) center / 100% 100% no-repeat;
+  mask: var(--cloud-mask) center / 100% 100% no-repeat;
+  transform: rotate(var(--rot, 0deg));
+}
+.hero-deco span:nth-child(1) { left: -48px;  top: -34px;    width: 158px; height: 122px; --rot: 9deg; }
+.hero-deco span:nth-child(2) { left: 17%;    top: -52px;    width: 138px; height: 106px; --rot: -7deg; }
+.hero-deco span:nth-child(3) { right: 21%;   top: -44px;    width: 126px; height: 98px;  --rot: 6deg; }
+.hero-deco span:nth-child(4) { right: -52px; top: 21%;      width: 150px; height: 118px; --rot: -9deg; }
+.hero-deco span:nth-child(5) { left: -56px;  top: 54%;      width: 146px; height: 114px; --rot: 7deg; }
+.hero-deco span:nth-child(6) { left: 9%;     bottom: -48px; width: 142px; height: 110px; --rot: -6deg; }
+.hero-deco span:nth-child(7) { right: 11%;   bottom: -54px; width: 154px; height: 120px; --rot: 6deg; }
+.hero-deco span:nth-child(8) { right: -46px; top: 57%;      width: 132px; height: 104px; --rot: 8deg; }
+/* コラージュ配置でないタブレット以下では省略（グリッドと干渉するため） */
+@media (max-width: 1024px) {
+  .hero-deco { display: none; }
+}
 .hero-copy, .hero-foot { position: relative; z-index: 2; max-width: 560px; margin: 0 auto; }
 
 /* キャッチ（ポスターの読み順: あ、それ、→ ロゴ） */

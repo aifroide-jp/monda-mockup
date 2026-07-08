@@ -33,6 +33,17 @@
   <main id="main" role="main">
     <!-- HERO: ポスターデザインベース（白背景・ポスター吹き出し・目つきロゴ） -->
     <section class="hero hero--poster">
+      <!-- ポスターの密度を再現する文字なしダミー吹き出し（装飾） -->
+      <div class="hero-deco" aria-hidden="true">
+        <span style="--pb:var(--p-orange)"></span>
+        <span style="--pb:var(--p-teal)"></span>
+        <span style="--pb:var(--p-magenta)"></span>
+        <span style="--pb:var(--p-amber)"></span>
+        <span style="--pb:var(--p-rose)"></span>
+        <span style="--pb:var(--p-lgreen)"></span>
+        <span style="--pb:var(--p-navyblue)"></span>
+        <span style="--pb:var(--p-deepred)"></span>
+      </div>
       <div class="container hero-inner">
         <ul class="hero-bubbles" aria-label="ポスターの“ もんだ ”吹き出し">
           <li class="pbubble" style="--pb:var(--p-pink)"><span>男性だから<br>仕事を優先<br>するもんだ？</span></li>
@@ -75,7 +86,8 @@
         </div>
         <div class="hero-foot">
           <p class="hero-lead">
-            「男だから」「女だから」「普通は」「昔から」そんな思い込み、佐賀県では、<strong>“ もんだ ”</strong>と呼んでいます。<br>
+            「男だから」「女だから」「普通は」「昔から」そんな思い込み、<br>
+            佐賀県では、<strong>“ もんだ ”</strong>と呼んでいます。<br>
             モヤモヤを感じる「○○する“ もんだ ”」<br>
             共感と笑いで、気づいて、話して、変えていきませんか？<br>
             みんなが少しずつ居心地よくなるために
