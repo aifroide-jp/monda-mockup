@@ -127,6 +127,7 @@ body { font-synthesis: none; }
 }
 
 .hero-lead { text-align: center; }
+.hero-lead strong { white-space: nowrap; } /* “ もんだ ”が行末で泣き別れしないように */
 .hero-foot { text-align: center; }
 
 /* PC（1025px〜）: コピーを中央、吹き出しを左右に散らすポスター風コラージュ */
