@@ -24,6 +24,10 @@ body { font-synthesis: none; }
 /* --- ポスター風吹き出し（もこもこの雲形。形はSVGマスクで再現し、しっぽ込みで::beforeに描く） --- */
 :root {
   --cloud-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 178'%3E%3Cg fill='%23fff'%3E%3Cellipse cx='110' cy='86' rx='88' ry='56'/%3E%3Ccircle cx='48' cy='48' r='29'/%3E%3Ccircle cx='95' cy='34' r='32'/%3E%3Ccircle cx='145' cy='39' r='30'/%3E%3Ccircle cx='184' cy='62' r='27'/%3E%3Ccircle cx='195' cy='98' r='24'/%3E%3Ccircle cx='170' cy='128' r='27'/%3E%3Ccircle cx='124' cy='144' r='28'/%3E%3Ccircle cx='72' cy='138' r='27'/%3E%3Ccircle cx='30' cy='112' r='25'/%3E%3Ccircle cx='24' cy='76' r='24'/%3E%3Ccircle cx='58' cy='164' r='13'/%3E%3C/g%3E%3C/svg%3E");
+  /* バリエーション2: 小さなこぶが多い花びら形（ポスターのもこもこ濃いめ） */
+  --cloud-mask-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 178'%3E%3Cg fill='%23fff'%3E%3Cellipse cx='110' cy='88' rx='90' ry='54'/%3E%3Ccircle cx='30' cy='60' r='22'/%3E%3Ccircle cx='58' cy='36' r='24'/%3E%3Ccircle cx='92' cy='24' r='25'/%3E%3Ccircle cx='128' cy='26' r='25'/%3E%3Ccircle cx='162' cy='36' r='24'/%3E%3Ccircle cx='190' cy='56' r='22'/%3E%3Ccircle cx='202' cy='86' r='20'/%3E%3Ccircle cx='192' cy='116' r='21'/%3E%3Ccircle cx='166' cy='138' r='23'/%3E%3Ccircle cx='132' cy='150' r='24'/%3E%3Ccircle cx='96' cy='152' r='24'/%3E%3Ccircle cx='62' cy='142' r='23'/%3E%3Ccircle cx='34' cy='120' r='21'/%3E%3Ccircle cx='20' cy='90' r='20'/%3E%3Ccircle cx='66' cy='165' r='12'/%3E%3C/g%3E%3C/svg%3E");
+  /* バリエーション3: 大きなこぶ少なめの丸い雲形 */
+  --cloud-mask-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 178'%3E%3Cg fill='%23fff'%3E%3Cellipse cx='110' cy='90' rx='85' ry='52'/%3E%3Ccircle cx='60' cy='50' r='40'/%3E%3Ccircle cx='140' cy='42' r='42'/%3E%3Ccircle cx='190' cy='95' r='32'/%3E%3Ccircle cx='38' cy='105' r='30'/%3E%3Ccircle cx='120' cy='140' r='36'/%3E%3Ccircle cx='70' cy='164' r='13'/%3E%3C/g%3E%3C/svg%3E");
 }
 .pbubble {
   --rot: 0deg;
@@ -44,6 +48,15 @@ body { font-synthesis: none; }
   mask: var(--cloud-mask) center / 100% 100% no-repeat;
 }
 .pbubble--tail-r::before { transform: scaleX(-1); }
+/* 吹き出しの形をポスターのように数種類に（並び順で3形状を循環） */
+.pbubble:nth-child(3n+2)::before {
+  -webkit-mask-image: var(--cloud-mask-2);
+  mask-image: var(--cloud-mask-2);
+}
+.pbubble:nth-child(3n)::before {
+  -webkit-mask-image: var(--cloud-mask-3);
+  mask-image: var(--cloud-mask-3);
+}
 .pbubble > span {
   background: rgba(40, 20, 10, 0.18);
   border-radius: 9px;
@@ -101,6 +114,15 @@ body { font-synthesis: none; }
 .hero-deco span:nth-child(6) { left: 9%;     bottom: -48px; width: 142px; height: 110px; --rot: -6deg; }
 .hero-deco span:nth-child(7) { right: 11%;   bottom: -54px; width: 154px; height: 120px; --rot: 6deg; }
 .hero-deco span:nth-child(8) { right: -46px; top: 57%;      width: 132px; height: 104px; --rot: 8deg; }
+/* ダミー吹き出しにも形のバリエーションを適用 */
+.hero-deco span:nth-child(3n+2) {
+  -webkit-mask-image: var(--cloud-mask-2);
+  mask-image: var(--cloud-mask-2);
+}
+.hero-deco span:nth-child(3n) {
+  -webkit-mask-image: var(--cloud-mask-3);
+  mask-image: var(--cloud-mask-3);
+}
 /* コラージュ配置でないタブレット以下では省略（グリッドと干渉するため） */
 @media (max-width: 1024px) {
   .hero-deco { display: none; }
@@ -496,3 +518,52 @@ body { font-synthesis: none; }
 .scene-tag--home   { --sc: #B84888; }
 .scene-tag--school { --sc: #68B8E8; }
 .scene-tag--area   { --sc: #A8C858; }
+
+/* ===== 0709赤入れ対応 ===== */
+
+/* PICKUPバナーは一旦非表示（時期に合わせて再表示するため hidden 属性で退避） */
+.pickup[hidden] { display: none; }
+
+/* 「お知らせ」「あ、それ、“ もんだ ”じゃない？」見出しをセンタリング */
+.news .section-label, .news .section-title,
+.about .section-label, .about .section-title { text-align: center; }
+
+/* クリーム色背景をABOUTセクション全体に */
+.about { background: var(--hero-bg); }
+.about .about-card { background: #FFFFFF; }
+
+/* 応募セクションのキャッチコピー（ポスターの募集コピー） */
+.steps-catch {
+  text-align: center;
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.6vw, 1.55rem);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.steps-catch em { font-style: normal; color: var(--color-accent1); }
+
+/* 応募CTAボタンの赤色化（ヒーロー内のボタンは回答待ちのため対象外） */
+.hero-cta--red, .entry-cta {
+  background: var(--p-red);
+  color: #fff;
+}
+
+/* 募集記事冒頭の吹き出しコラージュ（トップのヒーロー同様のにぎやかさに） */
+.notice-bubbles-deco {
+  width: 74px;
+  height: 58px;
+  align-self: flex-end;
+  background: var(--pb, var(--p-yellow));
+  -webkit-mask: var(--cloud-mask) center / 100% 100% no-repeat;
+  mask: var(--cloud-mask) center / 100% 100% no-repeat;
+  transform: rotate(var(--rot, 0deg));
+}
+.notice-bubbles-deco:nth-child(3n+2) {
+  -webkit-mask-image: var(--cloud-mask-2);
+  mask-image: var(--cloud-mask-2);
+}
+.notice-bubbles-deco:nth-child(3n) {
+  -webkit-mask-image: var(--cloud-mask-3);
+  mask-image: var(--cloud-mask-3);
+}
