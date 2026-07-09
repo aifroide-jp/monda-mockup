@@ -479,6 +479,11 @@ body { font-synthesis: none; }
   display: block;
   width: auto;
 }
+.footer-logo-link {
+  display: block;
+  transition: opacity 0.2s;
+}
+.footer-logo-link:hover { opacity: 0.75; }
 .footer-logo--pref { height: 34px; }
 .footer-logo--swa  { height: 44px; }
 @media (max-width: 480px) {
