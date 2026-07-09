@@ -466,22 +466,24 @@ body { font-synthesis: none; }
 }
 .entry-requirements--boxed h2 { color: var(--color-accent1); }
 
-/* --- フッター: ロゴ（白抜き）プレースホルダ --- */
+/* --- フッター: 関連ロゴ（白抜き支給PNG） --- */
 .footer-logos {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 14px 28px;
   margin: 16px 0 12px;
 }
-.footer-logo-ph {
-  border: 1.5px solid rgba(255, 255, 255, 0.65);
-  border-radius: 8px;
-  padding: 12px 22px;
-  font-size: 0.72rem;
-  color: #fff;
-  opacity: 0.85;
-  white-space: nowrap;
+.footer-logo {
+  display: block;
+  width: auto;
+}
+.footer-logo--pref { height: 34px; }
+.footer-logo--swa  { height: 44px; }
+@media (max-width: 480px) {
+  .footer-logo--pref { height: 28px; }
+  .footer-logo--swa  { height: 38px; }
 }
 
 /* --- 場面タグの色（下層ページで使用） --- */
