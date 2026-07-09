@@ -445,13 +445,11 @@ body { font-synthesis: none; }
   .scene-bubbles { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* --- 黄色い雲（ポスターの「あなたの声が誰かの気づきに」） --- */
+/* --- 黄色い雲（ポスターの「あなたの声が誰かの気づきに」）
+     0710指示: 黒ベタは違和感 → 背景なしで吹き出しだけを置く --- */
 .notice-cloud {
-  background: var(--p-ink);
-  border-radius: 16px;
-  padding: 40px 20px;
   text-align: center;
-  margin: 40px 0;
+  margin: 36px 0 28px;
 }
 .notice-cloud-bubble {
   display: inline-block;
@@ -543,10 +541,16 @@ body { font-synthesis: none; }
 }
 .steps-catch em { font-style: normal; color: var(--color-accent1); }
 
-/* 応募CTAボタンの赤色化（ヒーロー内のボタンは回答待ちのため対象外） */
+/* 応募CTAボタンの赤色化 */
 .hero-cta--red, .entry-cta {
   background: var(--p-red);
   color: #fff;
+}
+
+/* ヒーロー内CTA: 黒は重い → ヘッダーCTAと同じ黄色×濃色文字に（0710指示） */
+.hero-cta--yellow {
+  background: var(--color-accent7);
+  color: var(--text-primary);
 }
 
 /* 募集記事冒頭の吹き出しコラージュ（トップのヒーロー同様のにぎやかさに） */
