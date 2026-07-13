@@ -51,21 +51,22 @@
   --tag-bg: #F0F0F0;
   --tag-text: #555555;
 
-  /* ポスター吹き出しパレット（0708修正: ポスター準拠） */
-  --p-green:   #7DBE3E;
-  --p-lgreen:  #8CC63E;
-  --p-teal:    #3DBE8B;
-  --p-cyan:    #1BAFE8;
-  --p-blue:    #3F9BE0;
-  --p-navyblue:#4A7DD9;
-  --p-red:     #E8503B;
-  --p-deepred: #D93A2B;
-  --p-pink:    #ED8DA0;
-  --p-rose:    #D96E96;
-  --p-magenta: #C0208F;
-  --p-orange:  #F0A030;
-  --p-gold:    #D4A017;
-  --p-amber:   #E8A72E;
+  /* ポスター吹き出しパレット（0713修正: ポスターaiからの実測6色。
+     旧トークン名は誤参照防止のため6色いずれかに割り当てて残す） */
+  --p-red:     #EC5444;
+  --p-magenta: #D43C94;
+  --p-cyan:    #04B4EC;
+  --p-gold:    #FCBC2C;
+  --p-green:   #9CCC54;
+  --p-pink:    #EC849C;
+  --p-lgreen:  #9CCC54;
+  --p-teal:    #9CCC54;
+  --p-blue:    #04B4EC;
+  --p-navyblue:#04B4EC;
+  --p-deepred: #EC5444;
+  --p-rose:    #EC849C;
+  --p-orange:  #FCBC2C;
+  --p-amber:   #FCBC2C;
   --p-yellow:  #F8E838;
   --p-ink:     #231815;
 }
