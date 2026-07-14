@@ -229,9 +229,19 @@ body { font-synthesis: none; }
   .hero-bubbles { grid-template-columns: repeat(2, 1fr); gap: 34px 14px; margin: 20px auto; }
   .hero-bubbles .pbubble { padding: 18px 12px; }
   .hero-bubbles .pbubble::before { inset: -10px -10px -19px -10px; }
+  /* 0714追指示: 「料理の取り分け」の吹き出しは雲形3のへこみが深く「料」が欠けるため、SPでは縁のなだらかな雲形1に差し替え */
+  .hero-bubbles .pbubble:nth-child(6)::before {
+    -webkit-mask-image: var(--cloud-mask);
+    mask-image: var(--cloud-mask);
+  }
   .pbubble { padding: 20px 16px; }
   .pbubble > span { font-size: 0.74rem; padding: 6px 9px; }
   .hero-cta { font-size: 0.92rem; padding: 14px 22px; }
+}
+
+/* 幅の狭い端末では文言の折り返し(3行化)と縁への接近を防ぐ */
+@media (max-width: 380px) {
+  .pbubble > span { font-size: 0.7rem; }
 }
 
 /* --- PICKUP: ポスター調の募集バナー（新規作成） --- */
