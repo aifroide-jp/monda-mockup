@@ -225,7 +225,10 @@ body { font-synthesis: none; }
 /* モバイル（〜768px）: 2列 */
 @media (max-width: 768px) {
   .hero--poster { padding: 40px 0 48px; }
-  .hero-bubbles { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; margin: 20px auto; }
+  /* 0714戻し: 吹き出し同士の重なり解消（吹き出しを小さくし、行間を広げる） */
+  .hero-bubbles { grid-template-columns: repeat(2, 1fr); gap: 30px 16px; margin: 20px auto; }
+  .hero-bubbles .pbubble { padding: 14px 10px; }
+  .hero-bubbles .pbubble::before { inset: -8px -8px -16px -8px; }
   .pbubble { padding: 20px 16px; }
   .pbubble > span { font-size: 0.74rem; padding: 6px 9px; }
   .hero-cta { font-size: 0.92rem; padding: 14px 22px; }
@@ -561,6 +564,12 @@ body { font-synthesis: none; }
 
 /* ヒーロー内CTA: 黒は重い → ヘッダーCTAと同じ黄色×濃色文字に（0710指示） */
 .hero-cta--yellow {
+  background: var(--color-accent7);
+  color: var(--text-primary);
+}
+
+/* 0714戻し: SP追従CTA「あなたの“ もんだ ”を教えて」を黄色ベタ×黒文字に */
+.mobile-cta {
   background: var(--color-accent7);
   color: var(--text-primary);
 }
