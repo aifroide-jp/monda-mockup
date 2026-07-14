@@ -225,10 +225,10 @@ body { font-synthesis: none; }
 /* モバイル（〜768px）: 2列 */
 @media (max-width: 768px) {
   .hero--poster { padding: 40px 0 48px; }
-  /* 0714戻し: 吹き出し同士の重なり解消（吹き出しを小さくし、行間を広げる） */
-  .hero-bubbles { grid-template-columns: repeat(2, 1fr); gap: 30px 16px; margin: 20px auto; }
-  .hero-bubbles .pbubble { padding: 14px 10px; }
-  .hero-bubbles .pbubble::before { inset: -8px -8px -16px -8px; }
+  /* 0714戻し: 吹き出し同士の重なり解消（行間を広げる）。0714追指示で吹き出し自体は大きめに再調整 */
+  .hero-bubbles { grid-template-columns: repeat(2, 1fr); gap: 34px 14px; margin: 20px auto; }
+  .hero-bubbles .pbubble { padding: 18px 12px; }
+  .hero-bubbles .pbubble::before { inset: -10px -10px -19px -10px; }
   .pbubble { padding: 20px 16px; }
   .pbubble > span { font-size: 0.74rem; padding: 6px 9px; }
   .hero-cta { font-size: 0.92rem; padding: 14px 22px; }
