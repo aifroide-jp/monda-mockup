@@ -176,8 +176,13 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.7rem; font-weight: 700; padding: 3px 10px;
   border-radius: 4px; white-space: nowrap;
 }
-.news-label--new { background: var(--color-accent1); color: #fff; }
-.news-label--info { background: var(--color-accent4); color: #fff; }
+.news-label--new { background: var(--color-accent1); color: #fff; }  /* 旧ラベル: B・C案モックで使用 */
+.news-label--info { background: var(--color-accent4); color: #fff; } /* 旧ラベル: B・C案モックで使用 */
+/* お知らせカテゴリー（0721指示: お知らせ/募集/レポート/もんだエピソード。流動の可能性あり） */
+.news-label--recruit { background: var(--color-accent1); color: #fff; }   /* 募集 */
+.news-label--notice  { background: var(--color-accent4); color: #fff; }   /* お知らせ */
+.news-label--report  { background: var(--color-accent6); color: #fff; }   /* レポート */
+.news-label--episode { background: var(--color-accent2); color: #fff; }   /* もんだエピソード */
 .news-title { font-size: 0.9rem; }
 .news-more {
   display: block; text-align: right; margin-top: 16px;
