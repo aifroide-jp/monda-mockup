@@ -532,8 +532,8 @@ body { font-synthesis: none; }
 .footer-logo-link:hover { opacity: 0.75; }
 /* 0713県戻し: SWAロゴは佐賀県ロゴとの並列表示をやめ、フッターリンクのテキストに変更 */
 .footer-logo--pref { height: 34px; }
-/* 0721追加: 公式Instagramアイコン（白抜き） */
-.footer-logo--insta { height: 26px; width: 26px; }
+/* 0721追加: 公式Instagramアイコン（公式グラデーションのカラー版・角丸は SVG 側で処理） */
+.footer-logo--insta { height: 28px; width: 28px; }
 @media (max-width: 480px) {
   .footer-logo--pref { height: 28px; }
   .footer-logo--insta { height: 22px; width: 22px; }
