@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Instagram">
+  <defs>
+    <!-- Instagram公式風グラデーション（左下の黄→ピンク→紫→青） -->
+    <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+      <stop offset="0%" stop-color="#fdf497"/>
+      <stop offset="5%" stop-color="#fdf497"/>
+      <stop offset="45%" stop-color="#fd5949"/>
+      <stop offset="60%" stop-color="#d6249f"/>
+      <stop offset="90%" stop-color="#285AEB"/>
+    </radialGradient>
+  </defs>
+  <rect width="48" height="48" rx="10.5" fill="url(#ig-grad)"/>
+  <rect x="12.5" y="12.5" width="23" height="23" rx="6.5" fill="none" stroke="#fff" stroke-width="3"/>
+  <circle cx="24" cy="24" r="5.5" fill="none" stroke="#fff" stroke-width="3"/>
+  <circle cx="31.4" cy="16.6" r="1.9" fill="#fff"/>
+</svg>
